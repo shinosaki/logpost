@@ -1,5 +1,7 @@
+import { endpoints } from './endpoints.js'
+
 export const newrelic = async (req, options = {}) => {
-  options.endpoint ??= 'https://log-api.newrelic.com/log/v1'
+  options.endpoint ??= endpoints.newrelic.get(options.region ?? 'us')
   try { new URL(options.endpoint) } catch { throw new Error('Invalid NewRelic API Endpoint URL') }
 
   if (!options.key) {

@@ -8,6 +8,7 @@ Logging middleware in Hono
 - Datadog ([docs](https://docs.datadoghq.com/api/latest/logs/))
 
 ## Usage
+See [example.js](./example.js)
 
 - Console (`console.log()`)
   ```js
@@ -22,15 +23,13 @@ Logging middleware in Hono
     logpost({
       type: 'newrelic',
       newrelic: {
-        endpoint: 'https://log-api.newrelic.com/log/v1',
+        region: 'us',
         key: '<API Key (INGEST - LICENSE)>',
         // "req" is "c.raw.req"
         body: async (req) => {
           return {
             timestamp: Date.now(),
-            cf: req.cf,
-            hostname: req.url,
-            headers: Object.fromEntries(req.headers),
+            path: req.url.pathname,
           }
         }
       }

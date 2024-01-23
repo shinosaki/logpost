@@ -1,5 +1,5 @@
 export const datadog = async (req, options = {}) => {
-  options.endpoint ??= 'https://http-intake.logs.datadoghq.com/api/v2/logs'
+  options.endpoint ??= endpoints.datadog.get(options.region ?? 'us1')
   try { new URL(options.endpoint) } catch { throw new Error('Invalid Datadog API Endpoint URL') }
 
   if (!options.key) {
