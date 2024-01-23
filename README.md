@@ -4,7 +4,8 @@ Logging middleware in Hono
 
 ## Support Providers
 - `console.log()`
-- New Relic (Log API)
+- New Relic ([docs](https://docs.newrelic.com/docs/logs/log-api/introduction-log-api/))
+- Datadog ([docs](https://docs.datadoghq.com/api/latest/logs/))
 
 ## Usage
 
