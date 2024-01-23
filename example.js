@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { logpost } from './logpost.js'
+import { logpost } from './src/index.js'
 
 const app = new Hono()
 

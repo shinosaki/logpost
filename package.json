@@ -1,7 +1,41 @@
 {
-  "scripts": {
-    "dev": "wrangler dev example.js"
+  "name": "logpost",
+  "version": "0.1.0",
+  "description": "Logging middleware in Hono",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
+  "scripts": {
+    "dev": "wrangler dev example.js",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "esbuild --outdir=./dist/esm src/*",
+    "build:cjs": "esbuild --format=cjs --outdir=./dist/cjs src/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinosaki/logpost.git"
+  },
+  "keywords": [
+    "hono",
+    "log",
+    "logging",
+    "newrelic"
+  ],
+  "author": "Shinosaki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinosaki/logpost/issues"
+  },
+  "homepage": "https://github.com/shinosaki/logpost",
   "dependencies": {
     "hono": "^3.12.6"
   }
