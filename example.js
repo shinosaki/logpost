@@ -4,12 +4,11 @@ import { logpost } from './src/index.js'
 const app = new Hono()
 
 app.use('*',
-  // type: 'console' (default)
+  // console.log() (default)
   logpost(),
 
-  // type: 'newrelic'
+  // New Relic
   logpost({
-    // debug: true,
     type: 'newrelic',
     newrelic: {
       endpoint: 'https://log-api.newrelic.com/log/v1',
@@ -25,7 +24,7 @@ app.use('*',
     }
   })
 
-  // type: datadog
+  // Datadog
   logpost({
     type: 'datadog',
     datadog: {
