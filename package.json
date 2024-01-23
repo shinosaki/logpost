@@ -35,8 +35,5 @@
   "bugs": {
     "url": "https://github.com/shinosaki/logpost/issues"
   },
-  "homepage": "https://github.com/shinosaki/logpost",
-  "dependencies": {
-    "hono": "^3.12.6"
-  }
+  "homepage": "https://github.com/shinosaki/logpost"
 }
